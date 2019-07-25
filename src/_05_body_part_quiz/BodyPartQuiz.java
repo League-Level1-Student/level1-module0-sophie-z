@@ -21,10 +21,10 @@ public class BodyPartQuiz {
 	// package,or if you prefer, get celebrity photos from the Internet,
 	// place them in the default package, and change the names below.
 
-	String firstImage = "src/body_part_quiz/arnold.jpeg";
-	String secondImage = "src/body_part_quiz/leonardo.jpeg";
-	String thirdImage = "src/body_part_quiz/morgan.jpeg";
-	String fourthImage = "src/body_part_quiz/jack.jpeg";
+	String firstImage = "src/_05_body_part_quiz/arnold.jpeg";
+	String secondImage = "src/_05_body_part_quiz/leonardo.jpeg";
+	String thirdImage = "src/_05_body_part_quiz/morgan.jpeg";
+	String fourthImage = "src/_05_body_part_quiz/jack.jpeg";
 
 	JFrame window = new JFrame();
 	JPanel panel = new JPanel();
@@ -51,23 +51,56 @@ public class BodyPartQuiz {
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+int score = 0;
 		// 2. Set the size of the window in the initializeGui() method 
 
 		// 4. Ask the user who this person is and store their answer
-		String guess = JOptionPane.showInputDialog("who is this?");
+		String guessone = JOptionPane.showInputDialog("Who is this?");
 
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
-
+if(guessone.equals("Arnold")) {
+	JOptionPane.showMessageDialog(null, "Correct! Your score has beeen increased by one.");
+score = score + 1;
+}
 		// 6. Otherwise:
 		// -- Tell them they are wrong and who the person is
-
+else {
+	JOptionPane.showMessageDialog(null, "Wrong! This is Arnold.");
+}
 		// 7. Use the showNextImage() method below to get the next image
 		showNextImage();
 
 		// 8. .... repeat 4-7 for all your images.....
+		
+		String guesstwo = JOptionPane.showInputDialog("Who is this?");
+		if(guesstwo.equals("Jack")) {
+			JOptionPane.showMessageDialog(null, "Correct! Your score has beeen increased by one.");
+			score = score + 1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Wrong! This is Jack.");
+		}
+		showNextImage();
+		String guessthree = JOptionPane.showInputDialog("Who is this?");
 
+		if(guessthree.equals("Morgan")) {
+			JOptionPane.showMessageDialog(null, "Correct! Your score has beeen increased by one.");
+			score = score + 1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Wrong! This is Morgan.");
+		}
+		showNextImage();
+		String guessfour = JOptionPane.showInputDialog("Who is this?");
+		
+		if(guessfour.equals("Leonardo")) {
+			JOptionPane.showMessageDialog(null, "Correct! Your score has beeen increased by one.");
+			score = score + 1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Wrong! This is Leonardo.");
+		}
 		// 9. Show them their current score
 
 	}

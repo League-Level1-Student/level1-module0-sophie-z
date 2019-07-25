@@ -39,12 +39,11 @@ JPanel p = new JPanel();
 f.add(p);
 		// 7. Download an image of a drum from the Internet. Drop it into your
 		// Eclipse project under "default package".
-
 		// 8. Put the name of your image file in a String variable.
 String drumimage = "drum.jpg";
 		// 9. Edit the next line to use your String variable
 		// drumLabelWithImage = createLabelImage(drumImageString);
-drumLabelWithImage = createLabelImage("drum.jpg");
+drumLabelWithImage = createLabelImage(drumimage);
 		// 10. Add the image to the panel
 p.add(drumLabelWithImage);
 		// 11. Set the layout of the panel to "new GridLayout()"
@@ -53,10 +52,15 @@ p.setLayout(new GridLayout());
 		// your drum image?
 f.pack();
 		// 13. add this mouse listener to drumLabelWithImage
-drumLabelWithImage.addMouseListener(null);
+drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
-
+String bassdrumimage = "bassdrum.jpg";
+drumLabelWithImage = createLabelImage(bassdrumimage);
+p.add(drumLabelWithImage);
+p.setLayout(new GridLayout());
+f.pack();
+drumLabelWithImage.addMouseListener(this);
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -72,10 +76,9 @@ System.out.println("mouse clicked");
 		// leagueofamazing/code4life.
 
 		// 16. If they clicked on the drumImage...
-
+	playSound("drum.wav");
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
-
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
