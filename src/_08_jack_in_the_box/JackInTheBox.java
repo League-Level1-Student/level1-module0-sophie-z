@@ -1,11 +1,24 @@
 package _08_jack_in_the_box;
 
 import java.applet.AudioClip;
+import java.net.URL;
+
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class JackInTheBox {
+	public void showJFrame() {
+		System.out.println("Button clicked");
+		JFrame frame = new JFrame();
+		frame.setVisible(true);
+		JButton button = new JButton();
+		frame.add(button);
+		frame.pack();
+	}
 	private void showPicture(String fileName) { 
 	     try {
 	          JLabel imageLabel = createLabelImage(fileName);
@@ -19,14 +32,14 @@ public class JackInTheBox {
 	     }
 	}
 
-	private JLabel createLabelImage(String fileName) {
-	     try {
+	private JLabel createLabelImage(String fileName) {  
+		try {
 	          URL imageURL = getClass().getResource(fileName);
 	          if (imageURL == null) {
 	               System.err.println("Could not find image " + fileName);
 	               return new JLabel();
 	          } else {
-	               Icon icon = new Icon(imageURL);
+	               Icon icon = new ImageIcon(imageURL);
 	               JLabel imageLabel = new JLabel(icon);
 	               return imageLabel;
 	          }
@@ -37,7 +50,7 @@ public class JackInTheBox {
 	}
 	private void playSound(String soundFile) { 
 	     try {
-	          AudioClip sound = "homer-woohoo.wav";
+	    	 AudioClip sound = JApplet.newAudioClip(getClass().getResource(soundFile));
 	          sound.play();
 	     } catch (Exception e) {
 	          e.printStackTrace();
