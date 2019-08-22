@@ -7,18 +7,22 @@ import java.awt.event.ActionListener;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class SoundEffectsMachine implements ActionListener {
+	JButton button1 = new JButton("Dog");
+	JButton button2 = new JButton("Cat");
+	JButton button3 = new JButton("Cow");
 	public void showButton() {
 		System.out.println("Button clicked");
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
-		JButton button1 = new JButton();
-		JButton button2 = new JButton();
-		JButton button3 = new JButton();
-		frame.add(button1);
-		frame.add(button2);
-		frame.add(button3);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel panel = new JPanel();
+		panel.add(button1);
+		panel.add(button2);
+		panel.add(button3);
+		frame.add(panel);
 		frame.pack();
 		button1.addActionListener(this);
 		button2.addActionListener(this);
@@ -42,11 +46,15 @@ public class SoundEffectsMachine implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		JButton button1clicked = 
+		JButton buttonclicked = (JButton) e.getSource();
+			if(buttonclicked == button1) {
 				playSound1("dogbark.wav");
-		JButton button2clicked = 
-				playSound2("meow.wav");
-		JButton button3clicked = 
-				playSound3("moo.wav");
+			}
+			else if(buttonclicked == button2) {
+				playSound1("meow.wav");
+			}
+			else if(buttonclicked == button3) {
+				playSound1("moo.wav");
+			}
 	}
 }
